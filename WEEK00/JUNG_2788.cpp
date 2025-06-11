@@ -33,7 +33,7 @@ using namespace std;
 //     return 0;
 // }
 
-/**이중 for문 - O(N^2)**/
+/**이중 for문 - O(N^2logN)**/
 int main() {
     int n;
     cin >> n;

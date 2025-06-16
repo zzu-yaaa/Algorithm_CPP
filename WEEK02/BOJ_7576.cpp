@@ -4,12 +4,13 @@
 #include <queue>
 using namespace std;
 
+int tomato[1001][1001];
+int vis[1001][1001];
+
 int main() {
     int m, n;
     cin >> m >> n;
 
-    int tomato[1001][1001];
-    int vis[1001][1001];
     int ans = 0;
 
     for (int i = 0; i < n; i++) {

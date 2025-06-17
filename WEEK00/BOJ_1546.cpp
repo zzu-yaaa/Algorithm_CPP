@@ -1,3 +1,5 @@
+// 1526 평균
+
 #include <iostream>
 #include <algorithm>
 using namespace std;

@@ -1,3 +1,5 @@
+// 10871 X보다 작은 수
+
 #include <iostream>
 using namespace std;
 

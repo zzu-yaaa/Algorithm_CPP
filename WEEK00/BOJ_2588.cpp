@@ -1,3 +1,5 @@
+// 2588 곱셈
+
 #include <iostream>
 using namespace std;
 

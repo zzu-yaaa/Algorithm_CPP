@@ -1,3 +1,5 @@
+// 10430 나머지
+
 #include <iostream>
 using namespace std;
 

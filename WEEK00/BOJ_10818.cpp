@@ -1,3 +1,5 @@
+// 10818 최소, 최대
+
 #include <iostream>
 #include <algorithm>
 

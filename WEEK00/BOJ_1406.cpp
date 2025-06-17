@@ -1,3 +1,5 @@
+// 1406 에디터
+
 #include <iostream>
 #include <list>
 #include <string>

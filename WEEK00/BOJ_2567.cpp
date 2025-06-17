@@ -1,3 +1,5 @@
+// 2567 색종이 - 2
+
 #include <iostream>
 using namespace std;
 

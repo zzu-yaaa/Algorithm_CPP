@@ -1,3 +1,6 @@
+// 6549 히스토그램에서 가장 큰 직사각형
+// 실패 - 플레티넘
+
 #include <iostream>
 #include <stack>
 #include <algorithm>

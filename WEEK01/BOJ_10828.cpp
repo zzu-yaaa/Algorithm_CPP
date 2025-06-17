@@ -1,3 +1,5 @@
+// 10828 스택
+
 #include <iostream>
 #include <string>
 #include <stack>

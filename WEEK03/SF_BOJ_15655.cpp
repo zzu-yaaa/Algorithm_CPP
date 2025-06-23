@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int n, m;
@@ -10,6 +11,7 @@ int vis[9];
 vector<int> ans;
 
 void func(int start) {
+    // 개수만큼 다 찾았으면 종료
     if (ans.size() == m) {
         for (int i = 0; i < ans.size(); i++) {
             cout << ans[i] << " ";
@@ -18,12 +20,15 @@ void func(int start) {
         return;
     }
 
+    // 조합은 순서 상관 없기 때문이 자기자신 이후부터 n까지 반복
     for (int i = start; i < n; i++) {
+        // 이미 방문했으면 PASS
         if (vis[i] == 1) continue;
 
         ans.push_back(arr[i]);
         vis[i] = 1;
         func(i+1);
+        //백트래킹
         ans.pop_back();
         vis[i] = 0;
     }
@@ -41,6 +46,7 @@ int main() {
         cin >> arr[i];
     }
 
+    // 오름차순 정렬
     sort(arr, arr+n);
 
     func(0);

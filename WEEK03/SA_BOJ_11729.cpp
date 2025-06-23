@@ -4,12 +4,16 @@
 using namespace std;
 
 void hanoi(int n, int start, int end) {
+    // 1번 원판(맨 위의 원판)은 그냥 옮기면 됨
     if (n == 1) {
         cout << start << " " << end << "\n";
         return;
     }
+    //n-1개의 원판을 시작점에서 경유지로 옮김
     hanoi(n - 1, start, 6-start-end);
+    //n번째 원판은 목적지로 옮김
     cout << start << " " << end << "\n";
+    //n-1개의 원판을 경유지에서 목적지로 옮김
     hanoi(n - 1, 6-start-end, end);
 }
 

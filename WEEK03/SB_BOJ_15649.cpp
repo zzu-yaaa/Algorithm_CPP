@@ -16,12 +16,18 @@ void func() {
         return;
     }
 
+    // 순열은 순서 상관이 있기 때문에 1부터 n까지 반복
     for (int i=1; i<=n; i++) {
+        // 이미 사용했으면 패스
         if (vis[i] == 1) continue;
 
+        // 정답에 사용하지 않은 숫자를 넣는다
         ans.push_back(i);
+        // 방문 표시
         vis[i] = 1;
+        // 재귀 호출
         func();
+        // 백트래킹
         ans.pop_back();
         vis[i] = 0;
     }

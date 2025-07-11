@@ -1,4 +1,4 @@
-// 15486 퇴사
+// 15486 퇴사 2
 
 #include <iostream>
 #include <algorithm>
@@ -8,6 +8,7 @@ long long arr[1600000];
 int t[1600000];
 int p[1600000];
 
+// 14501 퇴사1과 동일, 자료형만 long long으로 변환
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);

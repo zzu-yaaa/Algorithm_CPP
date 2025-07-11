@@ -17,6 +17,7 @@ int main() {
         cin >> card[i];
     }
 
+    // 작은 수끼리 더해야 최소 점수 획득
     while (m--) {
         sort(card, card+n);
 

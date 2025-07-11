@@ -81,7 +81,7 @@ void left(int x, int y, int val, int vis[][9]) {
     }
 }
 
-void right2(int x, int y, int val, int vis[][9]) {
+void right(int x, int y, int val, int vis[][9]) {
     if (val == -1) {
         for (int i=y+1; i<m; i++) {
             if (office[x][i] == 6) break;
@@ -107,12 +107,12 @@ void func(int idx) {
         int cnt = 0;
         for (int i=0; i<n; i++) {
             for (int j=0; j<m; j++) {
-                cout << office[i][j] << " ";
+                //cout << office[i][j] << " ";
                 if (office[i][j] == 0) cnt++;
             }
-            cout << "\n";
+            //cout << "\n";
         }
-        cout << "-------------------------\n";
+        //cout << "-------------------------\n";
 
         ans = min(ans, cnt);
         return;
@@ -132,7 +132,7 @@ void func(int idx) {
                 if (i==0) {
                     up(x, y, -1, vis);
                     func(idx+1);
-                    up(x, y, 5, vis);
+                    up(x, y, 0, vis);
                 }
                 else if (i==1) {
                     down(x, y, -1, vis);
@@ -145,9 +145,9 @@ void func(int idx) {
                     left(x,y,0, vis);
                 }
                 else if (i==3) {
-                    right2(x, y, -1, vis);
+                    right(x, y, -1, vis);
                     func(idx+1);
-                    right2(x, y, 0, vis);
+                    right(x, y, 0, vis);
                 }
             }
             break;
@@ -162,10 +162,10 @@ void func(int idx) {
                 }
                 else if (i==1) {
                     left(x, y, -1, vis);
-                    right2(x, y, -1, vis);
+                    right(x, y, -1, vis);
                     func(idx+1);
                     left(x,y,0, vis);
-                    right2(x, y, 0, vis);
+                    right(x, y, 0, vis);
                 }
             }
             break;
@@ -180,10 +180,10 @@ void func(int idx) {
                 }
                 else if (i==1) {
                     down(x, y, -1, vis);
-                    right2(x, y, -1, vis);
+                    right(x, y, -1, vis);
                     func(idx+1);
                     down(x,y,0, vis);
-                    right2(x, y, 0, vis);
+                    right(x, y, 0, vis);
                 }
                 else if (i==2) {
                     up(x, y, -1, vis);
@@ -194,10 +194,10 @@ void func(int idx) {
                 }
                 else if (i==3) {
                     up(x, y, -1, vis);
-                    right2(x, y, -1, vis);
+                    right(x, y, -1, vis);
                     func(idx+1);
                     up(x, y, 0, vis);
-                    right2(x, y, 0, vis);
+                    right(x, y, 0, vis);
                 }
             }
             break;
@@ -215,32 +215,44 @@ void func(int idx) {
                 else if (i==1) {
                     up(x, y, -1, vis);
                     down(x, y, -1, vis);
-                    right2(x, y, -1, vis);
+                    right(x, y, -1, vis);
                     func(idx+1);
                     up(x, y, 0, vis);
                     down(x,y,0, vis);
-                    right2(x, y, 0, vis);
+                    right(x, y, 0, vis);
                 }
                 else if (i==2) {
                     left(x, y, -1, vis);
-                    right2(x, y, -1, vis);
+                    right(x, y, -1, vis);
                     up(x, y, -1, vis);
                     func(idx+1);
                     left(x,y,0, vis);
-                    right2(x, y, 0, vis);
+                    right(x, y, 0, vis);
                     up(x, y, 0, vis);
                 }
                 else if (i==3) {
                     left(x, y, -1, vis);
-                    right2(x, y, -1, vis);
+                    right(x, y, -1, vis);
                     down(x, y, -1, vis);
                     func(idx+1);
                     left(x,y,0, vis);
-                    right2(x, y, 0, vis);
+                    right(x, y, 0, vis);
                     down(x, y, 0, vis);
                 }
             }
             break;
+        case 5:
+            up(x, y, -1, vis);
+            down(x, y, -1, vis);
+            left(x, y, -1, vis);
+            right(x, y, -1, vis);
+            func(idx+1);
+            up(x, y, 0, vis);
+            down(x, y, 0, vis);
+            left(x, y, 0, vis);
+            right(x, y, 0, vis);
+
+
     }
 
 }
@@ -255,19 +267,12 @@ int main() {
     for (int i=0; i<n; i++) {
         for (int j=0; j<m; j++) {
             cin >> office[i][j];
-            if (office[i][j] > 0 && office[i][j] < 5) {
+            if (office[i][j] > 0 && office[i][j] < 6) {
                 node.push_back(office[i][j]);
                 node.push_back(i);
                 node.push_back(j);
                 v.push_back(node);
                 node.clear();
-            }
-            if (office[i][j] == 5) {
-                int vis[9][9];
-                up(i, j, -1, vis);
-                down(i, j, -1, vis);
-                left(i, j, -1, vis);
-                right2(i, j, -1, vis);
             }
         }
     }
@@ -278,3 +283,17 @@ int main() {
 
     return 0;
 }
+
+/*
+ *
+*
+7 4
+6 5 6 0
+0 0 0 0
+0 0 0 0
+0 6 0 0
+0 6 6 0
+6 0 0 6
+0 1 0 0
+
+ */

@@ -13,6 +13,7 @@ using namespace std;
 vector<pair<int, int> > graph[100001];
 int vis[100001];
 
+// 프림
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(0);

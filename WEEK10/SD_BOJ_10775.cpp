@@ -19,23 +19,28 @@ int main() {
     int g, p, gate;
     cin >> g >> p;
 
+    // 본인이 사용할 수 있는 gate의 최대값을 저장
     for (int i=1; i<=g; i++) {
         parent[i] = i;
     }
 
     int ans = 0;
+    // 사용할 수 있는 게이트가 없으면 true
     bool end = false;
     while (p--) {
         cin >> gate;
 
         if (end) continue;
 
+        // 내가 사용할 수 있는 게이트의 최대값을 가져옴
+        // 0이면 다 쓴 것
         int nxt = find(gate);
         if (nxt == 0) {
             end = true;
             continue;
         }
-        parent[nxt] = find(nxt-1);
+        // nxt 게이트를 사용했으니, 이제 nxt-1 게이트가 다음 후보가 되도록 부모 갱신
+        parent[nxt] = find(nxt - 1);
         ans++;
     }
 
